@@ -3,7 +3,8 @@ from .fit_predict_model import (
     evaluate_model,
     create_inference_pipeline,
     serialize_model,
-    train_model
+    train_model,
+    load_model
 )
 
 __all__ = [
@@ -13,4 +14,5 @@ __all__ = [
     "predict_model",
     "create_inference_pipeline",
     "train_model",
+    "load_model"
 ]
