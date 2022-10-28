@@ -3,6 +3,12 @@ Homework1
 
 ML in prodaction homework 1.
 
+Running train:
+------------
+    python -m src.train_pipeline configs/train_config.yaml
+------------
+
+
 Project Organization
 ------------
 
@@ -53,5 +59,3 @@ Project Organization
 
 
 --------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
