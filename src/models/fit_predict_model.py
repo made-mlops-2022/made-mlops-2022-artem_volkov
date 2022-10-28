@@ -56,3 +56,10 @@ def train_model(
         raise NotImplementedError()
     model.fit(features, target)
     return model
+
+
+def load_model(
+    model_path: str
+) -> ClassificationModel:
+    model = pickle.load(open(model_path, 'rb'))
+    return model
