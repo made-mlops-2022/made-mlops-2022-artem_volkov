@@ -3,9 +3,29 @@ Homework1
 
 ML in prodaction homework 1.
 
-Running train:
+
+Downloading dataset:
+------------
+    mkdir data
+    mkdir data/raw data/predicted
+------------
+
+then manually install dataset and move it to data/raw
+
+link to data: https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci
+
+Usage in train:
 ------------
     python -m src.train_pipeline configs/train_config.yaml
+------------
+
+Usage in inference:
+------------
+    python -m src.predict_pipeline configs/predict_config.yaml
+------------
+Run tests:
+------------
+    pytest
 ------------
 
 
