@@ -34,7 +34,7 @@ def loading_model():
 
 @app.get("/health")
 def read_health():
-    return not (model is None)
+    return "Model is not ready " if model is None else "Model is ready"
 
 
 @app.get("/predict/", response_model=list[HeartDiseaseResponse])
