@@ -19,3 +19,8 @@ Start server from DockerHub:
     docker pull polonium13/online_inference_model:v2
     docker run -p 8000:8000 -it polonium13/online_inference_model:v2
 ------------
+
+Running tests (first start server):
+------------
+    python -m unittest tests/test_server.py
+------------
