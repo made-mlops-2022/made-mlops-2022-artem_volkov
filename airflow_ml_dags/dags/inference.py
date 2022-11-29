@@ -35,20 +35,6 @@ with DAG(
         start_date=days_ago(0),
 ) as dag:
 
-    # features_sensor = FileSensor(
-    #     task_id="data_sensor",
-    #     filepath="/opt/airflow" + DATA_DIR_NAME + "/features.csv"
-    # )
-    #
-    # model_sensor = FileSensor(
-    #     task_id="model_sensor",
-    #     filepath="/opt/airflow" + MODEL_PATH
-    # )
-    #
-    # transformer_sensor = FileSensor(
-    #     task_id="transformer_sensor",
-    #     filepath="/opt/airflow" + TRANSFORMER_PATH
-    # )
     print(MODEL_PATH)
     print(TRANSFORMER_PATH)
     predict = DockerOperator(
