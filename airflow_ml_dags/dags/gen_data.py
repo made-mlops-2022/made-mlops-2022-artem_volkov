@@ -15,6 +15,11 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
+MOUNT_OBJ = [Mount(
+    source="/Users/artem/Documents/BMSTU/vk_2_sem/ml_prod/hm01/airflow_ml_dags/data",
+    target="/data",
+    type='bind'
+    )]
 
 with DAG(
         "data_generator",
@@ -24,15 +29,11 @@ with DAG(
 ) as dag:
     generate = DockerOperator(
         image="airflow-data-gen",
-        command=f"--dir_in {OUTPUT_DIR_NAME}",
+        command=f"--out_path {OUTPUT_DIR_NAME}",
         task_id="airflow-gen",
         do_xcom_push=False,
         network_mode="bridge",
-        mounts=[Mount(
-            source="/Users/artem/Documents/BMSTU/vk_2_sem/ml_prod/hm01/airflow_ml_dags/data",
-            target="/data",
-            type='bind'
-            )]
+        mounts=MOUNT_OBJ
     )
 
     generate
