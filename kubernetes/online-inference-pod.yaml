@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mlprod-pod
+  labels:
+    app: mlprod-pod
+spec:
+  containers:
+    - image: polonium13/online_inference_model:v2
+      name: mlprod
+      ports:
+        - containerPort: 8000
