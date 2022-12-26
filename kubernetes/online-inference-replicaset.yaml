@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mlprod-replicaset
+  labels:
+    app: mlprod-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mlprod
+  template:
+    metadata:
+      name: mlprod
+      labels:
+        app: mlprod
+    spec:
+      containers:
+        - image: polonium13/online_inference_model:v2
+          name: mlprod
+          ports:
+            - containerPort: 8000

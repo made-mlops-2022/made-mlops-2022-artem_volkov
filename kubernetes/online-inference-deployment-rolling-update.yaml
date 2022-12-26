@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlprod-deployment-blue-green
+  labels:
+    app: mlprod-deployment-blue-green
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: mlprod
+  template:
+    metadata:
+      name: mlprod
+      labels:
+        app: mlprod
+    spec:
+      containers:
+        - image: polonium13/online_inference_model:v2
+          name: mlprod
+          ports:
+            - containerPort: 8000
